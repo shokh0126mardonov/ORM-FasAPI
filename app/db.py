@@ -1,7 +1,7 @@
 from sqlalchemy import URL,create_engine
-from config import setting
+from .config import setting
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 url_object = URL.create(
     'postgresql+psycopg2',
@@ -17,3 +17,8 @@ engine = create_engine(url_object)
 LocalSesion = sessionmaker(bind=engine)
 
 Base = declarative_base()
+
+def initinal_db():
+    from .models import User
+    Base.metadata.create_all(engine)
+
