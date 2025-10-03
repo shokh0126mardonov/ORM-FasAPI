@@ -20,5 +20,8 @@ Base = declarative_base()
 
 def initinal_db():
     from .models import User
+    from .models import Post
+    from .models import Comment
+
     Base.metadata.create_all(engine)
 

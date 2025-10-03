@@ -14,3 +14,7 @@ class User(Base):
     gender = Column(String,nullable=False)
     username = Column(String,nullable=False,unique=True)
     phone = Column(String,nullable=False)
+
+    def __repr__(self):
+        return f"User(id={self.id}, first_name={self.first_name}, last_name={self.last_name}, username={self.username}, phone={self.phone})"
+    
